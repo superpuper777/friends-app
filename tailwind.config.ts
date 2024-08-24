@@ -21,6 +21,7 @@ const config: Config = {
         "disabled-btn-text": "#aaafbd",
         "status-green": "#16ba44",
         "main-gray": "#b1b9db",
+        "main-gray-50": "rgba(177, 185, 219, 0.5)",
         "status-bg-gray": "#f4f6fe",
         "tab-gray": "#5c5f6b",
         "txt-black": "#000000",

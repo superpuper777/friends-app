@@ -15,15 +15,13 @@ const Avatar: React.FC<AvatarProps> = ({
 }) => {
   return (
     <div className={`${className}`}>
-      {
-        <Image
-          src={image || ""}
-          alt="Profile Picture"
-          width={size}
-          height={size}
-          className="object-cover"
-        />
-      }
+      <Image
+        src={image || ""}
+        alt="Profile Picture"
+        width={size}
+        height={size}
+        className={`object-cover rounded w-[150px] h-[150px]`}
+      />
     </div>
   );
 };
