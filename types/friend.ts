@@ -1,22 +1,28 @@
 export type Friend = {
   id: string;
-  name: string;
+  img: string;
+  first_name: string;
+  last_name: string;
   status: string;
-  avatarUrl: string;
-  isOnline: boolean;
+  // avatarUrl: string;
+  available: boolean;
+  // isOnline: boolean;
 };
 
 export type FriendDetail = {
   id: number;
-  name: string;
-  status: string;
-  bio: string;
+  img: string;
+  first_name: string;
+  last_name: string;
   phone: string;
-  address: string;
+  address_1: string;
   city: string;
   state: string;
   zipcode: string;
-  avatarUrl: string;
+  bio: string;
+  // avatarUrl: string;
   photos: string[];
-  isOnline: boolean;
+  // status: string;
+  statuses: string[];
+  available: boolean;
 };

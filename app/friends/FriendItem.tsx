@@ -19,14 +19,12 @@ const FriendItem = ({ friend }: FriendItemProps) => {
   return (
     <div className="flex md:items-center xs:gap-[14px] md:justify-between md:flex-row xs:flex-col">
       <div className="flex items-center gap-[14px] relative">
-        <Avatar
-          image={friend.avatarUrl}
-          size={60}
-          className="w-[60px] h-[60px] overflow-hidden rounded relative"
-        />
-        <StatusIndicator isOnline={friend.isOnline} />
+        <Avatar image={friend.img} size={60} className="w-[60px] h-[60px]" />
+        <StatusIndicator available={friend.available} />
         <div className="flex flex-col gap-1">
-          <span className="font-semibold">{friend.name}</span>
+          <span className="font-semibold">
+            {friend.first_name} {friend.last_name}
+          </span>
           <Status status={friend.status} />
         </div>
       </div>

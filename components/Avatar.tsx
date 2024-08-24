@@ -5,7 +5,7 @@ import Image from "next/image";
 type AvatarProps = {
   size?: number;
   className?: string;
-  image?: string | null;
+  image: string;
 };
 
 const Avatar: React.FC<AvatarProps> = ({
@@ -14,13 +14,13 @@ const Avatar: React.FC<AvatarProps> = ({
   image,
 }) => {
   return (
-    <div className={`${className}`}>
+    <div className="rounded relative" style={{ width: size, height: size }}>
       <Image
-        src={image || ""}
+        src={image}
         alt="Profile Picture"
         width={size}
         height={size}
-        className={`object-cover rounded w-[150px] h-[150px]`}
+        className={`object-cover rounded ${className}`}
       />
     </div>
   );

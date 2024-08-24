@@ -24,7 +24,7 @@ const Details = ({ friend }: DetailsProps) => {
   const info = [
     { label: "Bio", value: friend.bio },
     { label: "Phone", value: friend.phone },
-    { label: "Address", value: friend.address },
+    { label: "Address", value: friend.address_1 },
     { label: "City", value: friend.city },
     { label: "State", value: friend.state },
     { label: "Zipcode", value: friend.zipcode },
@@ -40,19 +40,21 @@ const Details = ({ friend }: DetailsProps) => {
       />
       <div className="bg-white p-[60px] relative w-full">
         <div className="flex flex-col gap-[23px]">
-          {friend.avatarUrl && (
+          {friend.img && (
             <div className="relative">
               <Avatar
-                image={friend.avatarUrl}
+                image={friend.img}
                 size={150}
-                className="w-[150px] h-[150px] relative object-cover"
+                className="w-[150px] h-[150px] object-cover"
               />
-              <StatusIndicator isOnline={friend.isOnline} />
+              <StatusIndicator available={friend.available} />
             </div>
           )}
           <div className="flex flex-col gap-[10px]">
-            <h2 className="title">{friend.name}</h2>
-            <Status status={friend.status} />
+            <h2 className="title">
+              {friend.first_name} {friend.last_name}
+            </h2>
+            <Status status={friend.statuses[0]} />
           </div>
         </div>
         <TabGroup as="div" className="mt-[30px]">
