@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: "309px",
+      },
       colors: {
         blue: {
           50: "#2e57fa",
