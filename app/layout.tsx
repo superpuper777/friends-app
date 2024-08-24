@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex flex-col px-72 py-20 min-h-screen">
+        <div className="flex flex-col px-72 py-20 min-h-screen bg-main-gray bg-opacity-50">
           <main className="flex-grow">{children}</main>
         </div>
       </body>
