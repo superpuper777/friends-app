@@ -1,22 +1,47 @@
+"use client";
+
+import Avatar from "@/components/Avatar";
+import IconButton from "@/components/IconButton";
+import Status from "@/components/Status";
+import StatusIndicator from "@/components/StatusIndicator";
 import { friendDetail } from "@/mock/friends";
-import Image from "next/image";
+import goBackIcon from "@/public/images/arrow-back.svg";
 
-const FriendPage: React.FC<{ params: { id: string } }> = async ({ params }) => {
-  //   const friend = await fetchFriend(params.id);
+type FriendPageProps = {
+  params: { id: string | number };
+};
 
+const FriendPage = ({ params: { id } }: FriendPageProps) => {
+  //   const friend = await fetchFriend(id);
+  const handleBack = () => {
+    console.log("go back");
+  };
   return (
-    <div className="bg-white p-10">
-      {friendDetail.avatarUrl && (
-        <Image
-          src={friendDetail.avatarUrl}
-          alt={friendDetail.name}
-          width={64}
-          height={64}
-          className="w-16 h-16 rounded-full mb-4"
-        />
-      )}
-      <h1 className="text-2xl font-bold mb-4">{friendDetail.name}</h1>
-      <p className="text-lg">Phone: {friendDetail.phone}</p>
+    <div className="flex items-start justify-center  gap-[80px]">
+      <IconButton
+        iconSrc={goBackIcon}
+        iconAlt="Go back"
+        onClick={handleBack}
+        className="p-[10px] bg-white rounded-lg"
+      />
+      <div className="bg-white p-[60px] relative w-full">
+        <div className="flex flex-col gap-[23px]">
+          {friendDetail.avatarUrl && (
+            <div className="relative">
+              <Avatar
+                image={friendDetail.avatarUrl}
+                size={150}
+                className="w-[150px] h-[150px] overflow-hidden rounded relative"
+              />
+              <StatusIndicator isOnline={friendDetail.isOnline} />
+            </div>
+          )}
+          <div className="flex flex-col gap-[10px]">
+            <h2 className="title">{friendDetail.name}</h2>
+            <Status status={friendDetail.status} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

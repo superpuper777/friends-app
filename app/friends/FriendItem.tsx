@@ -5,6 +5,7 @@ import Avatar from "@/components/Avatar";
 import { Friend } from "@/types/friend";
 import StatusIndicator from "@/components/StatusIndicator";
 import Button from "@/components/Button";
+import Status from "@/components/Status";
 
 interface FriendItemProps {
   friend: Friend;
@@ -26,9 +27,7 @@ const FriendItem = ({ friend }: FriendItemProps) => {
         <StatusIndicator isOnline={friend.isOnline} />
         <div className="flex flex-col gap-1">
           <span className="font-semibold">{friend.name}</span>
-          <span className="subtitle border border-main-gray rounded-[20px] px-2 py-0.5 text-center inline-block max-w-max whitespace-nowrap">
-            {friend.status}
-          </span>
+          <Status status={friend.status} />
         </div>
       </div>
 
