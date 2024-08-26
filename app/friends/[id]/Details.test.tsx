@@ -1,40 +1,15 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { useRouter } from "next/navigation";
+
 import Details from "./Details";
+import { friend } from "@/mock/friend";
 
 jest.mock("next/navigation", () => ({
   useRouter: jest.fn(),
 }));
 
-const friend = {
-  id: 6,
-  img: "https://s3.amazonaws.com/uifaces/faces/twitter/walterstephanie/128.jpg",
-  first_name: "Steph",
-  last_name: "Walters",
-  phone: "(820) 289-1818",
-  address_1: "5190 Center Court Drive",
-  city: "Spring",
-  state: "TX",
-  zipcode: "77370",
-  bio: "I'm very choosy. I'm also very suspicious, very irrational and I have a very short temper. I'm also extremely jealous and slow to forgive. Just so you know.",
-  photos: [
-    "https://flic.kr/p/mxHVJu",
-    "https://flic.kr/p/nCJyXN",
-    "https://flic.kr/p/mxwwsv",
-  ],
-  statuses: [
-    "Developing something amazing",
-    "This could be interesting....",
-    "Man, life is so good",
-    "There is nothing quite like a good friend",
-    "Take a look around you, everything is awesome",
-    "What is the point of all of this",
-  ],
-  available: true,
-};
-
 describe("Details component", () => {
-  it("renders the friend details correctly", () => {
+  test("renders the friend details correctly", () => {
     render(<Details friend={friend} />);
 
     expect(screen.getByText("Steph Walters")).toBeInTheDocument();
@@ -46,7 +21,7 @@ describe("Details component", () => {
     expect(screen.getByAltText("Profile Picture")).toBeInTheDocument();
   });
 
-  it("navigates back when the back button is clicked", () => {
+  test("navigates back when the back button is clicked", () => {
     const mockBack = jest.fn();
     (useRouter as jest.Mock).mockReturnValue({ back: mockBack });
 
@@ -55,5 +30,22 @@ describe("Details component", () => {
     fireEvent.click(screen.getByRole("button", { name: /Go back/i }));
 
     expect(mockBack).toHaveBeenCalled();
+  });
+
+  test("displays Info tab content by default", () => {
+    render(<Details friend={friend} />);
+
+    expect(screen.getByText(/Bio:/i)).toBeInTheDocument();
+    expect(screen.getByText(friend.bio)).toBeInTheDocument();
+  });
+
+  test("displays Photos tab content when Photos tab is clicked", () => {
+    render(<Details friend={friend} />);
+
+    fireEvent.click(screen.getByText("Photos"));
+
+    expect(
+      screen.getByRole("img", { name: /Friend photo 1/i })
+    ).toBeInTheDocument();
   });
 });

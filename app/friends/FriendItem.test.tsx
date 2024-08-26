@@ -1,19 +1,12 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { useRouter } from "next/navigation";
+
 import FriendItem from "./FriendItem";
+import { mockFriend } from "@/mock/friend";
 
 jest.mock("next/navigation", () => ({
   useRouter: jest.fn(),
 }));
-
-const mockFriend = {
-  id: "1",
-  img: "https://s3.amazonaws.com/uifaces/faces/twitter/csswizardry/128.jpg",
-  first_name: "Jeremy",
-  last_name: "Davis",
-  status: "At work...",
-  available: false,
-};
 
 describe("FriendItem", () => {
   test("renders friends when provided", () => {

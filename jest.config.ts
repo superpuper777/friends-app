@@ -12,7 +12,7 @@ const config: Config = {
   moduleNameMapper: {
     "\\.(css|scss)$": "identity-obj-proxy",
     "\\.(png|jpg|gif|jpeg|svg)$": "<rootDir>/__mocks__/fileMock.ts",
-    // "^@/(.*)$": "<rootDir>$1",
+    "^@/(.*)$": "<rootDir>$1",
     "^@/libs/(.*)$": "<rootDir>/libs/$1",
     "^@/app/(.*)$": "<rootDir>/app/$1",
   },
