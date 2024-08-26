@@ -16,6 +16,7 @@ const config: Config = {
     "^@/libs/(.*)$": "<rootDir>/libs/$1",
     "^@/app/(.*)$": "<rootDir>/app/$1",
   },
+  moduleFileExtensions: ["js", "jsx", "ts", "tsx"],
 };
 
 export default createJestConfig(config);
