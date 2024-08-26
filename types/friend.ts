@@ -4,9 +4,7 @@ export type Friend = {
   first_name: string;
   last_name: string;
   status: string;
-  // avatarUrl: string;
   available: boolean;
-  // isOnline: boolean;
 };
 
 export type FriendDetail = {
@@ -20,9 +18,7 @@ export type FriendDetail = {
   state: string;
   zipcode: string;
   bio: string;
-  // avatarUrl: string;
   photos: string[];
-  // status: string;
   statuses: string[];
   available: boolean;
 };
