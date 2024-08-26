@@ -41,7 +41,7 @@
 
 - **Platform**: Vercel
     - **Justification**: Vercel is a powerful platform optimized for deploying Next.js applications. It provides seamless integration with Git, automated deployments, and a global Content Delivery Network (CDN) for fast, reliable performance. Vercel’s support for server-side rendering and static site generation ensures that Next.js applications are deployed efficiently and perform optimally.
-    - **Link**: [Live Application](https://friends-jd091ptdn-alenas-projects-c789531f.vercel.app/)
+    - **Link**: [Live Application](https://friends-app-two.vercel.app/friends)
 
 ## 5. **Necessary Changes and Observations**
 
