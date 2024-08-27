@@ -15,6 +15,7 @@ describe("Friend Page", () => {
     });
 
     cy.visit("/friends/1");
+    cy.wait(2000);
 
     cy.contains("Steph Walters");
     cy.get('img[alt="Profile Picture"]')

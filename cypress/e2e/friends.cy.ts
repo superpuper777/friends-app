@@ -25,6 +25,7 @@ describe("Friends Page", () => {
     });
 
     cy.visit("/friends");
+    cy.wait(2000);
 
     cy.contains("Friends");
     cy.contains("Jeremy Davis");
